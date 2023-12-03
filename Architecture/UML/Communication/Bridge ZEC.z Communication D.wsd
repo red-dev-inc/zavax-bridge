@@ -1,0 +1,14 @@
+@startuml
+title Bridge ZEC.z to ZEC Communication D
+top to bottom direction
+
+class "ZavaX\nAgent" as ZA
+class "ZavaX\nConsensus\nEngine" as ZCE
+class "Zebra\n" as Z
+
+ZA -down-> ZCE : **31: Check OK to burn ZEC.z**
+ZCE -down-> Z : 32: Transaction committed?
+Z -up-> ZCE : 33: Confirmation
+ZCE -down-> ZCE : 34: Write block:\ntransaction\nsuccessful/failed
+
+@enduml
